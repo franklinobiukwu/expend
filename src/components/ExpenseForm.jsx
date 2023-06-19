@@ -28,11 +28,15 @@ const ExpenseForm = () => {
 
 
 	return(
-		<>
-			<form onSubmit={HandleSubmit} className="flex flex-col w-64 bg-stone-800 p-1 text-zinc-800">
+		<div className="bg-slate-100">
+			<h2 className="text-center text-xl">Record Expense</h2>
+			<form onSubmit={HandleSubmit}
+				className="flex flex-col w-2/5 p-1 text-zinc-800 mx-auto
+				drop-shadow-xl">
 				<input 
 					type="text" name="description"
-					className="input input-bordered w-full max-w-xs"
+					className="input input-bordered w-full px-2 py-1"
+		
 					value={desc}
 					placeholder="Describe Expense"
 					onChange={(e)=>setDesc(e.target.value)}
@@ -41,6 +45,7 @@ const ExpenseForm = () => {
 					name="category" value={category}
 					placeholder="Select Category"
 					onChange={(e) => setCategory(e.target.value)}
+					className="px-2 py-1"
 				>
 					<option value="personal">Personal</option>
 					<option value="family">Family</option>
@@ -51,15 +56,20 @@ const ExpenseForm = () => {
 					type="number" name="amount" value={amount}
 					placeholder="Amount"
 					onChange={(e) => setAmount(e.target.value)}
+					className="px-2 py-1"
 				/>
 				<input 
 					type="date" name="date" value={date}
 					placeholder="Date"
 					onChange={(e) => setDate(e.target.value)}
+					className="px-2 py-1"
 				/>
-				<button type="submit">Record</button>
+				<button type="submit"
+					className="mt-2 text-white bg-blue-500
+					hover:bg-blue-600 rounded-md font-semibold drop-shadow-xl"
+				>Record</button>
 			</form>
-		</>
+		</div>
 	)
 }
 

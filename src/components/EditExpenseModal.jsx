@@ -22,21 +22,25 @@ const EditExpenseModal = (props) => {
 		props.closeMod()
 	}
 	return(
-		<div>
-			<form onSubmit={HandleUpdate}>
+		<div className="w-2/5 m-auto">
+			<form onSubmit={HandleUpdate}
+				className="flex flex-col drop-shadow-xl">
 				<input
 					type="date"
 					name="date" defaultValue={date}
 					onChange={(e) => setDate(e.target.value)}
+					className="px-2 py-1"
 				/>
 				<input
 					type="number"
 					name="amount" defaultValue={amount}
 					onChange={(e) => setAmount(e.target.value)}
+					className="px-2 py-1"
 				/>
 				<select
 					name="category" defaultValue={category}
 					onChange={(e) => setCategory(e.target.value)}
+					className="px-2  py-1"
 				>
 					<option value="personal">Personal</option>
 					<option value="family">Family</option>
@@ -47,9 +51,17 @@ const EditExpenseModal = (props) => {
 				<input
 					name="description" defaultValue={desc}
 					onChange={(e) => setDesc(e.target.value)}
+					className="py-1 px-2"
 				/>
-				<button type="button" onClick={props.closeMod}>Cancel</button>
-				<button type="submit">Update</button>
+				<div className="flex justify-end mt-2">
+					<button type="button"
+						onClick={props.closeMod}
+						className="bg-red-400 px-2 rounded"
+					>Cancel</button>
+					<button type="submit"
+						className="bg-green-400 px-2 ml-2 rounded"
+					>Update</button>
+				</div>
 
 			</form>
 		</div>
